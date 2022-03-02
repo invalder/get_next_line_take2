@@ -6,7 +6,15 @@
 /*   By: nnakarac <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 22:52:46 by nnakarac          #+#    #+#             */
-/*   Updated: 2022/03/02 22:52:47 by nnakarac         ###   ########.fr       */
+/*   Updated: 2022/03/02 22:59:26 by nnakarac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "get_next_line.h"
+
+char	*get_next_line(int fd);
+
+char	*get_next_line(int fd)
+{
+
+}
