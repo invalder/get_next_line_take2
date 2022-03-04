@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nnakarac <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/02 22:52:46 by nnakarac          #+#    #+#             */
-/*   Updated: 2022/03/04 15:10:22 by nnakarac         ###   ########.fr       */
+/*   Created: 2022/03/04 15:14:43 by nnakarac          #+#    #+#             */
+/*   Updated: 2022/03/04 15:16:05 by nnakarac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*get_next_line(int fd);
 char	*ft_gnl_buffer(t_buffer *p_buff, int read_cnt);
