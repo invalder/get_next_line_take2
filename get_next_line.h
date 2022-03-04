@@ -6,13 +6,12 @@
 /*   By: nnakarac <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 22:52:58 by nnakarac          #+#    #+#             */
-/*   Updated: 2022/03/02 23:29:08 by nnakarac         ###   ########.fr       */
+/*   Updated: 2022/03/04 12:17:52 by nnakarac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -26,12 +25,21 @@
 
 typedef struct s_buffer
 {
-	int		fd;
-	char	*buffer;
-	size_t	buff_len;
+	char	*buff;
+	size_t	len;
+	size_t	cur;
+	size_t	last;
 	size_t	next;
 }	t_buffer;
 
-typedef t_buffer	*pt_buffer;
+size_t	ft_strlen(const char *str);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
+void	ft_bzero(void *s, size_t n);
+char	*ft_freebuff(t_buffer *p_buff);
+char	*get_next_line(int fd);
+char	*ft_gnl_buffer(t_buffer *p_buff, int read_cnt);
+int		ft_gnl_add_buff(t_buffer *p_buff, int fd);
+char	*ft_alloc_buffer(t_buffer *p_buff, size_t buff_size);
+char	*ft_gnl_last(t_buffer *p_buff, int read_cnt);
 
 #endif
