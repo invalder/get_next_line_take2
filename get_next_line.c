@@ -6,7 +6,7 @@
 /*   By: nnakarac <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 22:52:46 by nnakarac          #+#    #+#             */
-/*   Updated: 2022/03/04 14:02:33 by nnakarac         ###   ########.fr       */
+/*   Updated: 2022/03/04 14:49:00 by nnakarac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,13 @@ char	*get_next_line(int fd)
 		return (0);
 	while (read_cnt)
 	{
-		buff = ft_alloc_buffer(&t_buff[fd], BUFFER_SIZE);
-		// printf("buff: %p\n", buff);
-		if (!buff)
-			return (NULL);
+		if (t_buff[fd].len == t_buff[fd].last)
+		{
+			buff = ft_alloc_buffer(&t_buff[fd], BUFFER_SIZE);
+			// printf("buff: %p\n", buff);
+			if (!buff)
+				return (NULL);
+		}
 		read_cnt = ft_gnl_add_buff(&t_buff[fd], fd);
 		// printf("read_cnt: %ld\n", read_cnt);
 		// printf("buff:\n%s\n", t_buff[fd].buff);
@@ -63,15 +66,16 @@ char	*ft_gnl_buffer(t_buffer *p_buff, int read_cnt)
 	char	*buff;
 
 	buff = NULL;
-	next = p_buff->cur;
+	next = p_buff->next;
 	if (p_buff->buff)
 	{
 		while (p_buff->buff[next] != '\n' && p_buff->buff[next])
 			next++;
+		p_buff->next = next;
 		if (p_buff->buff[next] == '\n')
 		{
-			if (next + 1 < p_buff->len)
-				ft_alloc_buffer(p_buff, BUFFER_SIZE);
+			// if (next + 1 >= p_buff->len)
+			// 	ft_alloc_buffer(p_buff, BUFFER_SIZE);
 			buff = malloc(sizeof(char) * (next - p_buff->cur + 2));
 			if (!buff)
 				return (ft_freebuff(p_buff));
