@@ -6,7 +6,7 @@
 /*   By: nnakarac <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 22:53:10 by nnakarac          #+#    #+#             */
-/*   Updated: 2022/03/04 12:17:09 by nnakarac         ###   ########.fr       */
+/*   Updated: 2022/03/04 14:14:43 by nnakarac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ size_t	ft_strlen(const char *str)
 {
 	int	len;
 
+	len = 0;
 	if (!str)
 		return 0;
 	while (str[len])
